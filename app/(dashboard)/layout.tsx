@@ -1,5 +1,7 @@
 // import UpgradeProModal from "@/components/dashboard/upgrade-pro-modal";
+import UpgradeProModal from "@/components/dashboard/upgrade-pro-modal";
 import Sidebar from "@/components/sidebar";
+import MobileSidebar from "@/components/sidebar/mobile-sidebar";
 // import MobileSidebar from "@/components/sidebar/mobile-sidebar";
 import Topbar from "@/components/ui/topbar";
 // import { checkSubscription, getUserLimitCount } from "@/lib/user-limit";
@@ -10,6 +12,8 @@ const DashboardLayout = async (props: {
 }) => {
   // const isProPlan = await checkSubscription();
   // const userLimitCount = await getUserLimitCount();
+  const isProPlan = false
+  const userLimitCount = 0;
   return (
     <div>
       <header>
@@ -23,15 +27,16 @@ const DashboardLayout = async (props: {
             "fixed left-0 z-20 w-80 [&:has([is-navbar-minimal])]:w-fit hidden",
             "lg:block"
           )} />
-        {/* <MobileSidebar
+        <MobileSidebar
           isProPlan={isProPlan}
           userLimitCount={userLimitCount} />
         <UpgradeProModal isProPlan={isProPlan} />
         <div className={cn(
           "bg-background h-[calc(100vh-56px)]",
           "lg:rounded-3xl lg:p-7"
-        )}> */}
-        {props.children}
+        )}>
+          {props.children}
+        </div>
       </main >
     </div >
   )
